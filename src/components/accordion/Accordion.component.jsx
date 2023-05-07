@@ -6,7 +6,7 @@ import { Container, Inner, Frame, Title, Item, Header, Body } from "./accordion.
 // created a context to toggle the accordion on and off 
 const ToggleContext = createContext(null)
 
-function Accordion({ children, ...restProps }) {
+const Accordion = ({ children, ...restProps }) => {
   return (
     <Container {...restProps}>
       <Inner>
