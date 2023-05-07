@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { Feature, OptForm } from '../../components';
-import { HeaderContainer } from '../../containers';
+import { HeaderContainer, JumbotronContainer } from '../../containers';
 import * as ROUTES from "../../constants/routes";
 
 const Home = () => {
@@ -25,6 +25,7 @@ const Home = () => {
           </OptForm>
         </Feature>
       </HeaderContainer>
+      <JumbotronContainer />
     </>
   )
 }
