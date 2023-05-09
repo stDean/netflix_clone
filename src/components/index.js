@@ -6,3 +6,5 @@ export { default as Accordion } from "./accordion/Accordion.component";
 export { default as Footer } from "./footer/Footer.component";
 export { default as Form } from "./form/Form.component";
 export { default as Card } from "./card/Card.component";
+export { default as Loading } from "./loading/Loading.component";
+export { default as Player } from "./player/Player.component";

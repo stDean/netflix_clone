@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Card, Header } from "../../components";
+import { Card, Header, Loading, Player } from "../../components";
 import * as ROUTES from "../../constants/routes";
 import LOGO from "../../logo.svg";
 import { auth } from "../../services/firebase";
@@ -19,9 +19,15 @@ const Browse = ({ slides }) => {
     setSlideRows(slides[category]);
   }, [slides, category]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <>
-      {/* {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />} */}
+      {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
       <Header src="joker1" dontShowOnSmallViewPort>
         <Header.Frame>
@@ -114,7 +120,10 @@ const Browse = ({ slides }) => {
               </Card.Entities>
 
               <Card.Feature category={category}>
-                
+                <Player>
+                  <Player.Button />
+                  <Player.Video src="/videos/bunny.mp4" />
+                </Player>
               </Card.Feature>
             </Card>
           ))
