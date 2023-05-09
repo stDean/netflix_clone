@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateCurrentUser, updateProfile } from "firebase/auth";
 
 import { Form } from "../../components";
 import { FooterContainer, HeaderContainer } from "../../containers";
@@ -23,6 +23,9 @@ const SignUp = () => {
     try {
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       await createUserProfile(user, { displayName, photoURL })
+      await updateProfile(auth.currentUser, {
+        displayName, photoURL
+      })
       nav(ROUTES.BROWSE)
     } catch (e) {
       setEmail('');

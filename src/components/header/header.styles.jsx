@@ -60,6 +60,11 @@ export const Logo = styled.img`
   }
 `;
 
+export const Group = styled.div`
+  /* display: flex;
+  align-items: center; */
+`;
+
 export const Link = styled.p`
   /* color: #fff;
   text-decoration: none;
@@ -76,9 +81,18 @@ export const Link = styled.p`
   } */
 `;
 
-export const Group = styled.div`
+export const Search = styled.div`
   /* display: flex;
-  align-items: center; */
+  align-items: center;
+
+  svg {
+    color: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    display: none;
+  } */
 `;
 
 export const SearchInput = styled.input`
@@ -97,20 +111,6 @@ export const SearchInput = styled.input`
   
   &:focus {
     background-color: rgba(0, 0, 0, 0.8);
-  } */
-`;
-
-export const Search = styled.div`
-  /* display: flex;
-  align-items: center;
-
-  svg {
-    color: white;
-    cursor: pointer;
-  }
-
-  @media (max-width: 700px) {
-    display: none;
   } */
 `;
 
