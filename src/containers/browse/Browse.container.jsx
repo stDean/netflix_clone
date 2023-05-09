@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { Header } from "../../components";
+import { Card, Header } from "../../components";
 import * as ROUTES from "../../constants/routes";
 import LOGO from "../../logo.svg";
 import { auth } from "../../services/firebase";
@@ -11,11 +11,18 @@ const Browse = ({ slides }) => {
 
   const [category, setCategory] = useState('series');
   const [searchTerm, setSearchTerm] = useState('');
+  const [slideRows, setSlideRows] = useState([]);
+  const [loading, setLoading] = useState(true);
   const user = auth.currentUser || {};
-  console.log(user);
+
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
 
   return (
     <>
+      {/* {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />} */}
+
       <Header src="joker1" dontShowOnSmallViewPort>
         <Header.Frame>
           <Header.Group>
@@ -77,6 +84,39 @@ const Browse = ({ slides }) => {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
+
+      <Card.Group>
+        {
+          slideRows.map(items => (
+            <Card key={`${category}-${items.title.toLowerCase()}`}>
+              <Card.Title>
+                {items.title}
+              </Card.Title>
+
+              <Card.Entities>
+                {
+                  items.data.map(item => (
+                    <Card.Item key={item.docId} item={item}>
+                      <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} alt='movies' />
+
+                      <Card.Meta>
+                        <Card.SubTitle>
+                          {item.title}
+                        </Card.SubTitle>
+
+                        <Card.Text>
+                          {item.description}
+                        </Card.Text>
+                      </Card.Meta>
+                    </Card.Item>
+                  ))
+                }
+              </Card.Entities>
+            </Card>
+          ))
+        }
+      </Card.Group >
+
       <FooterContainer />
     </>
   )
