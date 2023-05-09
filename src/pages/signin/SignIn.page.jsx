@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { Form } from "../../components";
 import { FooterContainer, HeaderContainer } from "../../containers";
 import * as ROUTES from "../../constants/routes";
+import { auth } from "../../services/firebase";
 
 const SignIn = () => {
 
@@ -17,6 +19,7 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
+      await signInWithEmailAndPassword(auth, email, password);
       nav(ROUTES.BROWSE)
     } catch (e) {
       setEmail('');
