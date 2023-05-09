@@ -61,12 +61,12 @@ export const Logo = styled.img`
 `;
 
 export const Group = styled.div`
-  /* display: flex;
-  align-items: center; */
+  display: flex;
+  align-items: center;
 `;
 
 export const Link = styled.p`
-  /* color: #fff;
+  color: #fff;
   text-decoration: none;
   margin-right: 30px;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
@@ -78,11 +78,11 @@ export const Link = styled.p`
 
   &:last-of-type {
     margin-right: 0;
-  } */
+  }
 `;
 
 export const Search = styled.div`
-  /* display: flex;
+  display: flex;
   align-items: center;
 
   svg {
@@ -92,11 +92,11 @@ export const Search = styled.div`
 
   @media (max-width: 700px) {
     display: none;
-  } */
+  }
 `;
 
 export const SearchInput = styled.input`
-  /* background-color: rgba(64, 64, 64, 0.5);
+  background-color: rgba(64, 64, 64, 0.5);
   color: white;
   border: 1px solid white;
   transition: width 0.5s;
@@ -111,11 +111,11 @@ export const SearchInput = styled.input`
   
   &:focus {
     background-color: rgba(0, 0, 0, 0.8);
-  } */
+  }
 `;
 
 export const SearchIcon = styled.button`
-  /* cursor: pointer;
+  cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: 0;
@@ -129,20 +129,20 @@ export const SearchIcon = styled.button`
   img {
     filter: brightness(0) invert(1);
     width: 16px;
-  } */
+  }
 `;
 
 export const Picture = styled.button`
-  /* background: url(${({ src }) => src});
+  background: url(${({ src }) => src});
   background-size: contain;
   border: 0;
   width: 32px;
   height: 32px;
-  cursor: pointer; */
+  cursor: pointer;
 `;
 
 export const Dropdown = styled.div`
-  /* display: none;
+  display: none;
   position: absolute;
   background-color: black;
   padding: 15px;
@@ -174,11 +174,11 @@ export const Dropdown = styled.div`
     font-size: 12px;
     margin-bottom: 0;
     margin-top: 0;
-  }  */
+  } 
 `;
 
 export const Profile = styled.div`
-  /* display: flex;
+  display: flex;
   align-items: center;
   margin-left: 20px;
   position: relative;
@@ -190,38 +190,38 @@ export const Profile = styled.div`
   &:hover > ${Dropdown} {
     display: flex;
     flex-direction: column;
-  } */
+  }
 `;
 
 export const Feature = styled(Container)`
-  /* padding: 150px 0 500px 0;
+  padding: 150px 0 500px 0;
   flex-direction: column;
   align-items: normal;
   width: 50%;
 
   @media (max-width: 1100px) {
     display: none;
-  } */
+  }
 `;
 
 export const FeatureCallOut = styled.h2`
-  /* color: white;
+  color: white;
   font-size: 50px;
   line-height: normal;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
-  margin: 0; */
+  margin: 0;
 `;
 
 export const Text = styled.p`
-  /* color: white;
+  color: white;
   font-size: 22px;
   line-height: normal;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45); */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 `;
 
 export const PlayButton = styled.button`
-  /* box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
   background-color: #e6e6e6;
   color: #000;
   border-width: 0;
@@ -237,5 +237,5 @@ export const PlayButton = styled.button`
   &:hover {
     background-color: #ff1e1e;
     color: white;
-  } */
+  }
 `;

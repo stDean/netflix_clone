@@ -3,11 +3,9 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 
 import {
   Background, Container, Logo, ButtonLink, Group, Link, Search, SearchInput, SearchIcon,
-  Profile, Picture,
+  Profile, Picture, Dropdown, Feature, Text, FeatureCallOut, PlayButton
 } from './header.styles';
 
-// Feature, Text, FeatureCallOut,
-// Dropdown, PlayButton
 
 const Header = ({ bg = true, children, ...restProps }) => {
   return (
@@ -92,5 +90,43 @@ Header.Picture = function HeaderPicture({ src, ...restProps }) {
       {...restProps}
       src={`/images/users/${src}.png`}
     />
+  );
+};
+
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
+  return (
+    <Dropdown {...restProps}>
+      {children}
+    </Dropdown>);
+};
+
+Header.Feature = function HeaderFeature({ children, ...restProps }) {
+  return (
+    <Feature>
+      {children}
+    </Feature>
+  );
+};
+
+Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {
+  return (
+    <FeatureCallOut {...restProps}>
+      {children}
+    </FeatureCallOut>);
+};
+
+Header.Text = function HeaderText({ children, ...restProps }) {
+  return (
+    <Text {...restProps}>
+      {children}
+    </Text>
+  );
+};
+
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return (
+    <PlayButton {...restProps}>
+      {children}
+    </PlayButton>
   );
 };
