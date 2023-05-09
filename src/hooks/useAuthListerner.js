@@ -19,7 +19,7 @@ export const useAuthListener = () => {
       }
     })
     return () => listener();
-  }, [auth])
+  }, [])
 
   return { user };
 }

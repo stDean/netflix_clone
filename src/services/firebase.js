@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, setDoc, getDoc, doc, collection, writeBatch } from 'firebase/firestore';
+import { getFirestore, setDoc, getDoc, doc, addDoc, collection } from 'firebase/firestore';
+
+// import { seedDatabase } from "../seed";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,6 +21,9 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 export const db = getFirestore(app);
+
+// Adding the seedData to the db once
+// seedDatabase(db, addDoc, collection)
 
 // Storing user in the fire store database
 export const createUserProfile = async (userAuth, additionalData) => {

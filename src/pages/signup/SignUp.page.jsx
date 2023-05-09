@@ -35,7 +35,7 @@ const SignUp = () => {
     <>
       <HeaderContainer>
         <Form>
-          <Form.Title>Sign In</Form.Title>
+          <Form.Title>Sign Up</Form.Title>
 
           {
             error && (
