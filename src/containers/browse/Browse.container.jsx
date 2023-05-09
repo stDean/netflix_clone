@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import { signOut } from "firebase/auth";
+import Fuse from 'fuse.js';
 
 import { Card, Header, Loading, Player } from "../../components";
 import * as ROUTES from "../../constants/routes";
 import LOGO from "../../logo.svg";
 import { auth } from "../../services/firebase";
-import { signOut } from "firebase/auth";
 import FooterContainer from "../footer/Footer.container";
 import ProfileContainer from "../profile/Profile.contaier";
 
@@ -26,6 +27,18 @@ const Browse = ({ slides }) => {
       setLoading(false);
     }, 3000);
   }, [profile.displayName]);
+
+  // for the live search using the fuse library.
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm, category, slideRows, slides]);
 
   return profile.displayName ? (
     <>
