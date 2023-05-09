@@ -112,6 +112,10 @@ const Browse = ({ slides }) => {
                   ))
                 }
               </Card.Entities>
+
+              <Card.Feature category={category}>
+                
+              </Card.Feature>
             </Card>
           ))
         }

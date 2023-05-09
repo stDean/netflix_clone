@@ -119,18 +119,18 @@ export const Item = styled.div`
 `;
 
 export const FeatureText = styled.p`
-  /* font-size: 18px;
+  font-size: 18px;
   color: white;
   font-weight: ${({ fontWeight }) => (fontWeight === 'bold' ? 'bold' : 'normal')};
   margin: 0;
 
   @media (max-width: 600px) {
     line-height: 22px;
-  } */
+  }
 `;
 
 export const Feature = styled.div`
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   background: url(${({ src }) => src});
   background-size: contain;
@@ -152,41 +152,41 @@ export const Feature = styled.div`
     ${FeatureText} {
       font-size: 14px;
     }
-  } */
+  }
 `;
 
 export const FeatureTitle = styled(Title)`
-  /* margin-left: 0; */
+  margin-left: 0;
 `;
 
 export const FeatureClose = styled.button`
-  /* color: white;
+  color: white;
   position: absolute;
   right: 20px;
   top: 20px;
   cursor: pointer;
   background-color: transparent;
-  border: 0; */
+  border: 0;
 
-  /* img {
+  img {
     filter: brightness(0) invert(1);
     width: 24px;
-  } */
+  }
 `;
 
 export const Content = styled.div`
-  /* margin: 56px;
+  margin: 56px;
   max-width: 500px;
   line-height: normal;
 
   @media (max-width: 1000px) {
     margin: 30px;
     max-width: none;
-  } */
+  }
 `;
 
 export const Maturity = styled.div`
-  /* background-color: ${({ rating }) => (rating >= 15 ? '#f44336' : '#2f9600')};
+  background-color: ${({ rating }) => (rating >= 15 ? '#f44336' : '#2f9600')};
   border-radius: 15px;
   width: 28px;
   line-height: 28px;
@@ -195,5 +195,5 @@ export const Maturity = styled.div`
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 10px;
-  font-size: 12px; */
+  font-size: 12px;
 `;
