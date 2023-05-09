@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { Form } from "../../components";
 import { FooterContainer, HeaderContainer } from "../../containers";
 import * as ROUTES from "../../constants/routes";
+import { auth, createUserProfile } from "../../services/firebase";
 
 const SignUp = () => {
 
@@ -16,8 +18,11 @@ const SignUp = () => {
 
   const handleSignIn = async e => {
     e.preventDefault();
+    const photoURL = Math.floor(Math.random() * 5) + 1;
 
     try {
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+      await createUserProfile(user, { displayName, photoURL })
       nav(ROUTES.BROWSE)
     } catch (e) {
       setEmail('');
@@ -67,7 +72,7 @@ const SignUp = () => {
               type="submit"
               disabled={isInValid}
             >
-              Sign In
+              Sign Up
             </Form.Submit>
           </Form.Base>
 
