@@ -6,6 +6,7 @@ import LOGO from "../../logo.svg";
 import { auth } from "../../services/firebase";
 import { signOut } from "firebase/auth";
 import FooterContainer from "../footer/Footer.container";
+import ProfileContainer from "../profile/Profile.contaier";
 
 const Browse = ({ slides }) => {
 
@@ -13,6 +14,7 @@ const Browse = ({ slides }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [slideRows, setSlideRows] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState({});
   const user = auth.currentUser || {};
 
   useEffect(() => {
@@ -23,9 +25,9 @@ const Browse = ({ slides }) => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
-  }, []);
+  }, [profile.displayName]);
 
-  return (
+  return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
@@ -131,8 +133,9 @@ const Browse = ({ slides }) => {
       </Card.Group >
 
       <FooterContainer />
+
     </>
-  )
+  ) : <ProfileContainer setProfile={setProfile} user={user} />
 }
 
 export default Browse
